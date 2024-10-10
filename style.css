@@ -1,0 +1,908 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+}
+body {  
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #0c0c0c;
+    background-image: url("images/fondo.jpg");
+    background-color: rgba(19, 18, 18, 0.1);
+    background-blend-mode: overlay;
+}
+
+/* Header */
+header {  
+    background-color: #42423e;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-content {
+    background-color: #d6d1bdcb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.logo {
+    width: 100px;
+    margin-right: 20px;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 255, 0.5));
+}
+
+.header-text {
+    text-align: left;
+    color: #4d4a25;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-shadow: 4px 4px 6px rgba(0, 0, 255, 0.5);
+}
+
+h2 {
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 255, 0.4);
+}
+.header-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+/* Navigation */
+nav {
+    background-color: #e6e3e9;
+    padding: 1rem 0;
+    transition: background-color 0.3s ease;
+}
+
+nav:hover {
+    background-color: rgba(238, 235, 235, 0.8);
+}
+.objectives img{
+    width: 200px;
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav ul li { 
+    margin: 0; 
+}
+.levels img{
+    width: 200px;
+}
+nav ul li a {
+    color: #474040;
+    font-size: 1rem; /* Cambiado de 1.2rem a 1rem para un tamaño más pequeño */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #a99fbd;
+}
+
+/* Hero */
+.hero {
+    
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.overlay {
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 0%;
+    transform: translateY(-50%);
+    text-align: left;
+    color: white; /* Este color es el color base del texto, se aplicará la opacidad a los h1 y h2 */
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro con opacidad */
+    padding: 20px;
+    border-radius: 10px 0 0 10px;
+}
+
+.overlay h1 {
+    color: rgba(255, 255, 0, 0.7); /* Amarillo con 80% de opacidad */
+    font-size: 2.0rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Mantiene la sombra */
+}
+
+.overlay h2 {
+    color: rgba(241, 241, 237, 0.5); /* Blanco con 80% de opacidad */
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra ligera para contraste */
+}
+
+/* Menú 2 */
+.menu2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.menu2 ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.menu2 ul li {
+    flex: 1;
+    margin: 0;
+}
+
+.menu2 ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgba(144, 238, 144, 0.7); /* Fondo verde claro semi-transparente */
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    min-height: 120px;
+    font-size: 1rem; /* Cambiado de 1.5rem a 1rem para un tamaño más pequeño */
+    color: #2c3e50; /* Cambiado a un color más elegante */
+}
+
+.menu2 ul li a:hover {
+    background-color: rgba(85, 160, 88, 0.8); /* Fondo verde oscuro semi-transparente al pasar el mouse */
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.menu2 ul li a h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #183618;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.menu2 ul li a h2 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #4a148c; /* Cambiado a un color más elegante */
+    transition: color 0.3s ease;
+}
+
+/* Mission */
+.container3 {
+    background-color: rgba(223, 223, 226, 0.8); /* Agregada transparencia */
+    display: flex;
+    flex-direction: column;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+
+.mission h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(53, 50, 50);
+    font-weight: normal;
+    text-shadow: none;
+}
+.objectives img {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+.objectives h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5rem; /* Ajusta el tamaño según tus preferencias */
+}
+.objectives p{
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+.levels img {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+.levels h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5rem; /* Ajusta el tamaño según tus preferencias */
+}
+.levels p{
+    text-align: left;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 40px 20px;
+    text-align: left;
+    gap: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 10px;
+    min-width: 300px;
+    text-align: left;
+}
+
+.footer-info {
+    flex: 1.2;
+}
+
+.footer-info p {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.footer-map {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    float: left;
+    margin-right: 20px;
+}
+
+.logo-container img {
+    width: 40px;
+}
+
+/* Menú del footer */
+.footer-menu h3 {
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.footer-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+/* Estilo para el primer nivel del menú */
+.footer-menu li {
+    margin-bottom: 10px;
+    position: relative;
+}
+.info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container p {
+    margin: 0;
+    padding: 10px 0; /* Esto añade 10px de padding arriba y abajo */
+}
+
+.info-container p:not(:last-child) {
+    margin-bottom: 10px; /* Esto añade 10px de margen abajo, excepto al último párrafo */
+}
+
+@media (max-width: 768px) {
+    .info-container p {
+        padding: 5px 0;
+    }
+
+    .info-container p:not(:last-child) {
+        margin-bottom: 5px; /* Reduce el espacio en dispositivos móviles si es necesario */
+    }
+}.footer-menu li::before {
+    content: "*";
+    margin-right: 5px;
+    color: #ffdd57;
+}
+
+/* Estilo para el segundo nivel (submenú) */
+.footer-menu li ul {
+    margin-left: 20px;
+}
+
+.footer-menu li ul li {
+    margin-bottom: 5px;
+}
+
+.footer-menu li ul li::before {
+    content: "\2726"; /* Estrella de 4 puntas hueca */
+    margin-right: 5px;
+    color: #ffdd57;
+}
+
+/* Estilos generales para los enlaces */
+.footer-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.footer-menu a:hover {
+    color: #ffdd57;
+}
+
+/* Estilo para el mapa en el footer */
+#map {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    border-radius: 10px;
+    border: 2px solid #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer-column {
+        padding: 20px 0;
+        text-align: left;
+    }
+
+    #map {
+        min-height: 200px;
+    }
+}
+/* Estilos para la sección principal con fondo azul oscuro */
+.seccion-principal {
+    background-color: #1a2a43; /* Fondo azul oscuro elegante */
+    padding: 60px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.seccion-principal h1 {
+    font-size: 2.8em;
+    color: #f5f5f5;
+    margin-bottom: 20px;
+}
+
+.seccion-principal p {
+    font-size: 1.3em;
+    color: #c2c9d1;
+    margin-bottom: 40px;
+}
+
+.contenedor-recursos {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.recurso {
+    background-color: #2e3b55; /* Fondo más claro para las tarjetas */
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.recurso:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.recurso h2 {
+    font-size: 1.6em;
+    color: #a3d5ff; /* Color claro para los títulos */
+    margin-bottom: 15px;
+}
+
+.recurso p {
+    font-size: 1.1em;
+    color: #d1d9e3;
+    margin-bottom: 20px;
+}
+
+.recurso img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+i {
+    margin-right: 10px;
+    color: #5b5e83; /* Color dorado para los íconos */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .contenedor-recursos {
+        flex-direction: column;
+    }
+
+    .recurso {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}  
+/*corregir medias existen dobles fuera del media query
+/* Estilos para la sección institucional */
+.seccion-institucional {
+    background-color: #2a3d5b; /* Fondo gris azulado elegante */
+    padding: 60px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.seccion-institucional h1 {
+    font-size: 2.8em;
+    color: #f0f4f8; /* Color claro para el título */
+    margin-bottom: 20px;
+}
+
+.seccion-institucional p {
+    font-size: 1.3em;
+    color: #d1d9e3; /* Texto con tono suave para buena legibilidad */
+    margin-bottom: 20px;
+    line-height: 1.8;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Opcional: si quieres agregar un borde inferior elegante a los títulos */
+.seccion-institucional h1::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #ffcc00;
+    margin: 20px auto;
+}
+/* Estilos para la sección de fotos */
+.seccion-fotos {
+    background-color: #444c55; /* Fondo gris suave */
+    padding: 60px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #2c3e50; /* Color del texto principal: gris oscuro */
+}
+
+.seccion-fotos h1 {
+    font-size: 2.8em;
+    color: #2c3e50; /* Color oscuro para el título */
+    margin-bottom: 20px;
+}
+
+.seccion-fotos p {
+    font-size: 1.2em;
+    color: #4b6587; /* Texto en azul oscuro suave */
+    margin-bottom: 40px;
+}
+
+/* Grid de fotos */
+.grid-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px;
+    justify-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Estilos para la sección de fotos */
+.seccion-fotos {
+    background: linear-gradient(to bottom, #e6f2ff, #44484d); /* Fondo degradado lineal claro y oscuro */
+    padding: 60px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #2c3e50; /* Color del texto principal: gris oscuro */
+}
+
+.seccion-fotos h1 {
+    font-size: 2.8em;
+    color: #2c3e50; /* Color oscuro para el título */
+    margin-bottom: 20px;
+}
+
+.seccion-fotos p {
+    font-size: 1.2em;
+    color: #4b6587; /* Texto en azul oscuro suave */
+    margin-bottom: 40px;
+}
+
+/* Grid de fotos */
+.grid-fotos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px;
+    justify-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* Estilos para las tarjetas (cards) */
+.card {
+    background-color: #e0e4e8; /* Fondo gris claro elegante */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más definida */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    color: #ff6b6b; /* Título en coral rojo suave */
+    margin: 15px;
+}
+
+.card p {
+    font-size: 1em;
+    color: #4b6587; /* Texto en azul oscuro */
+    margin: 15px;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Levantar un poco la tarjeta al pasar el mouse */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Sombra más profunda al hacer hover */
+}
+
+/* Efecto hover con cambio de borde */
+.card:hover h2 {
+    color: #38ada9; /* Verde turquesa para el título al hacer hover */
+}
+
+/* Responsivo: Ajustes para pantallas más pequeñas */
+@media (max-width: 1024px) {
+    .grid-fotos {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas para pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-fotos {
+        grid-template-columns: 1fr; /* Una columna para pantallas pequeñas */
+    }
+}
+/* Estilos para la sección de inscripciones */
+.seccion-inscripciones {
+    background-color: #2d1946; /* Fondo púrpura oscuro */
+    color: #ffffff; /* Texto en blanco */
+    padding: 60px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.seccion-inscripciones h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.seccion-inscripciones p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco con opacidad */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Estilos para el formulario */
+.inscripcion-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inscripcion-form label {
+    margin: 10px 0 5px;
+    font-size: 1em;
+}
+
+.inscripcion-form input,
+.inscripcion-form select {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Borde gris */
+    font-size: 1em;
+}
+
+.inscripcion-form button {
+    padding: 10px;
+    background-color: #ff6b6b; /* Botón de color coral */
+    color: #ffffff; /* Texto del botón en blanco */
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.inscripcion-form button:hover {
+    background-color: #adaa9c; /* Cambia a dorado al pasar el mouse */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .seccion-inscripciones {
+        padding: 30px;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+/* Estilos para la sección de cuotas */
+.seccion-cuotas {
+    background-color: #1d1c1c; /* Fondo gris claro para elegancia */
+    color: #333333; /* Texto oscuro para buena legibilidad */
+    padding: 60px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.seccion-cuotas h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4a148c; /* Título en púrpura oscuro */
+}
+
+.seccion-cuotas p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Estilos para la información de cuotas */
+.cuotas-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas más pequeñas */
+    margin-top: 30px;
+}
+
+.cuota-item {
+    background-color: #5c5a5c; /* Fondo blanco para las tarjetas de cuotas */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 250px; /* Ancho fijo para tarjetas */
+}
+
+.cuota-item h2 {
+    color: #19191a; /* Color púrpura oscuro para los títulos de cuotas */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.cuota-item p {
+    font-size: 1.1em;
+    color: #1d0202; /* Color gris para el texto */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .cuotas-info {
+        flex-direction: column; /* Apila las tarjetas en pantallas pequeñas */
+        align-items: center;
+    }
+}
+/* Estilos para la sección de contacto */
+.seccion-contacto {
+    background: linear-gradient(135deg, #636264, #828183); /* Degradado púrpura */
+    color: #1a1616; /* Texto en blanco */
+    padding: 60px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.seccion-contacto h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.seccion-contacto p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+/* Estilos para la información de contacto */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas más pequeñas */
+}
+
+.contact-item {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco semi-transparente */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 250px; /* Ancho fijo para tarjetas */
+    transition: transform 0.3s; /* Transición para efecto de hover */
+}
+
+.contact-item:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+.contact-item h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.contact-item p {
+    font-size: 1.1em;
+}
+
+/* Estilos para los íconos */
+.contact-item i {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #cccbc7; /* Color dorado para los íconos */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column; /* Apila las tarjetas en pantallas pequeñas */
+        align-items: center;
+    }
+}
+/* Responsividad */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: center; /* Centra los elementos */
+    }
+
+    nav ul {
+        flex-direction: column; /* Cambia la navegación a columna */
+        padding: 0;
+    }
+
+    .menu2 ul {
+        flex-direction: column; /* Cambia el menú a columna */
+    }
+
+    .info {
+        flex-direction: column; /* Cambia la información a columna */
+        align-items: center; /* Centra la información */
+    }
+
+    .info-container {
+        align-items: center; /* Centra los elementos de info */
+    }
+
+    .footer {
+        flex-direction: column; /* Cambia el footer a columna */
+        align-items: center; /* Centra el contenido del footer */
+    }
+
+    .footer-menu ul {
+        padding: 0; /* Reduce el padding del menú en dispositivos móviles */
+    }
+
+    .footer-column {
+        min-width: auto; /* Permite que las columnas ocupen todo el espacio disponible */
+    }
+}
+
+
+
+.form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    margin: 10px 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #0056b3;
+}
