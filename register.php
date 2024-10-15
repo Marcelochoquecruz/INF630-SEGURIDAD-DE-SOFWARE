@@ -1,48 +1,36 @@
 <?php
 session_start();
-
-// Conexión a la base de datos
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "secure_login";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Generar un token CSRF si no existe
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-// Verificar si se ha enviado el formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         $error = "Error: Token CSRF inválido.";
     } else {
-        if (!empty($_POST['email']) && !empty($_POST['password'])) {
-            $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-            $pass = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hashear contraseña
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-            // Insertar nuevo usuario con sentencias preparadas
-            $sql = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-            $sql->bind_param("ss", $email, $pass);
+        $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+        $stmt->bind_param("ss", $email, $password);
 
-            if ($sql->execute()) {
-                header("Location: login.php"); // Redirigir al login después del registro exitoso
-                exit();
-            } else {
-                $error = "Error al registrar usuario.";
-            }
-
-            $sql->close();
+        if ($stmt->execute()) {
+            header("Location: index.php");
+            exit();
         } else {
-            $error = "Por favor, rellena ambos campos.";
+            $error = "Error al registrar el usuario.";
         }
+        $stmt->close();
     }
 }
 
@@ -75,7 +63,7 @@ $conn->close();
         }
         ?>
 
-        <p>¿Ya tienes una cuenta? <a href="login.php">Iniciar sesión aquí</a></p>
+        <p>¿Ya tienes una cuenta? <a href="index.php">Iniciar sesión aquí</a></p>
     </div>
 </body>
 </html>

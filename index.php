@@ -8,54 +8,42 @@ $password = "";
 $dbname = "secure_login";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexión
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Generar un token CSRF si no existe
+// Generar un token CSRF
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
-// Verificar si se ha enviado el formulario
+// Verificar si el formulario se envió
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         $error = "Error: Token CSRF inválido.";
     } else {
-        if (!empty($_POST['email']) && !empty($_POST['password'])) {
-            $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-            $pass = $_POST['password'];
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $pass = $_POST['password'];
 
-            // Consultar el usuario con sentencias preparadas
-            $sql = $conn->prepare("SELECT * FROM users WHERE email = ?");
-            $sql->bind_param("s", $email);
-            $sql->execute();
-            $result = $sql->get_result();
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc();
-                // Verificar la contraseña
-                if (password_verify($pass, $row['password'])) {
-                    // Sesión segura
-                    $_SESSION['id'] = $row['id'];
-                    $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // Regenerar token CSRF
-                    
-                    // Redirigir a 'login_exit.php'
-                    header("Location: login_exit.php"); // Cambia aquí a register.php
-                    exit();
-                } else {
-                    $error = "Contraseña incorrecta";
-                }
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            if (password_verify($pass, $user['password'])) {
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // Regenerar CSRF
+                header("Location: login_exit.php");
+                exit();
             } else {
-                $error = "Usuario no encontrado";
+                $error = "Contraseña incorrecta.";
             }
-
-            $sql->close();
         } else {
-            $error = "Por favor, rellena ambos campos.";
+            $error = "Usuario no encontrado.";
         }
+        $stmt->close();
     }
 }
 
@@ -109,24 +97,18 @@ $conn->close();
         </section>
 
         <div class="form-container">
-                <h2>Iniciar Sesión</h2>
-                <form method="post" action="login.php" class="login-form">
-                    <input type="email" name="email" placeholder="E-Mail" required>
-                    <input type="password" name="password" placeholder="Contraseña" required>
-                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                    <button type="submit">Iniciar sesión</button>
-                </form>
-        
-                <?php
-                // Mostrar errores si los hay
-                if (isset($error)) {
-                    echo "<p class='error'>$error</p>";
-                }
-                ?>
-        
-                <p>No tienes una cuenta? <a href="register.php">Registrarte aquí</a></p>
-                <p><a href="login_exit.php" class="back-button">Regresar al login</a></p>
-            </div>
+        <h2>Iniciar Sesión</h2>
+        <form method="post" action="index.php">
+            <input type="email" name="email" placeholder="E-Mail" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+
+        <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
+
+        <p>¿No tienes una cuenta? <a href="register.php">Regístrate aquí</a></p>
+    </div>
         
                 <?php
                 // Mostrar errores si los hay
